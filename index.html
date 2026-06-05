@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas Veículos - Se o seu carro virou dívida, a gente resolve.</title>
+<meta name="description" content="Compramos veículos com financiamento atrasado antes da busca e apreensão. Você sai sem dívida e ainda recebe. Paulínia, Campinas e região.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --azul:      #0E1B2C;
+  --azul-med:  #162437;
+  --azul-claro:#1E3050;
+  --ouro:      #C8A97E;
+  --ouro-brilho:#D4B896;
+  --ouro-esc:  #A07840;
+  --bege:      #F2EDD8;
+  --taupe:     #C2B6AA;
+  --branco:    #FFFFFF;
+  --cinza:     #8A8A8A;
+  --verde:     #2D6A4F;
+  --vermelho:  #8B1A1A;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body:    'Barlow', sans-serif;
+  --font-cond:    'Barlow Condensed', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--azul);
+  color: var(--branco);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.ouro { color: var(--ouro); }
+.bege { color: var(--bege); }
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.topbar {
+  background: var(--azul);
+  border-bottom: 1px solid rgba(200,169,126,0.15);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  backdrop-filter: blur(8px);
+  animation: slideDown 0.6s ease both;
+}
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.logo-text {
+  font-family: var(--font-cond);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--branco);
+}
+.logo-text span { color: var(--ouro); }
+.topbar-cta {
+  background: var(--ouro);
+  color: var(--azul);
+  font-family: var(--font-cond);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 9px 22px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, transform 0.2s;
+}
+.topbar-cta:hover { background: var(--ouro-brilho); transform: translateY(-1px); }
+
+.hero {
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0 60px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--azul) 0%, var(--azul-med) 50%, var(--azul) 100%);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  right: -10%;
+  top: -10%;
+  width: 70%;
+  height: 120%;
+  background: radial-gradient(ellipse at center, rgba(200,169,126,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-line {
+  position: absolute;
+  right: 38%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(200,169,126,0.3), transparent);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  animation: fadeUp 0.9s ease both 0.3s;
+}
+@keyframes fadeUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+.hero-label {
+  font-family: var(--font-cond);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: var(--ouro);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-label::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--ouro);
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.08;
+  color: var(--branco);
+  margin-bottom: 12px;
+}
+.hero h1 em { font-style: italic; color: var(--ouro); }
+.hero-sub {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 400;
+  color: var(--taupe);
+  margin-bottom: 36px;
+  line-height: 1.4;
+}
+.hero-garantias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 44px;
+}
+.garantia-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--bege);
+  background: rgba(200,169,126,0.1);
+  border: 1px solid rgba(200,169,126,0.2);
+  padding: 8px 16px;
+  letter-spacing: 0.02em;
+}
+.garantia-pill .dot {
+  width: 6px; height: 6px;
+  background: var(--ouro);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+.btn-primary {
+  background: var(--ouro);
+  color: var(--azul);
+  font-family: var(--font-cond);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 18px 38px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.15);
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+}
+.btn-primary:hover::before { transform: translateX(0); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,169,126,0.3); }
+.btn-ghost {
+  color: var(--ouro);
+  font-family: var(--font-cond);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(200,169,126,0.3);
+  transition: gap 0.2s, border-color 0.2s;
+}
+.btn-ghost:hover { gap: 14px; border-color: var(--ouro); }
+
+.hero-badge {
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--azul-claro);
+  border: 1px solid rgba(200,169,126,0.25);
+  padding: 32px 28px;
+  max-width: 280px;
+  animation: fadeLeft 0.9s ease both 0.6s;
+  display: none;
+}
+@media (min-width: 900px) { .hero-badge { display: block; } }
+@keyframes fadeLeft {
+  from { transform: translateY(-50%) translateX(30px); opacity: 0; }
+  to   { transform: translateY(-50%) translateX(0); opacity: 1; }
+}
+.badge-icon { font-size: 2.2rem; margin-bottom: 16px; display: block; }
+.badge-title {
+  font-family: var(--font-cond);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--ouro);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.badge-list { list-style: none; }
+.badge-list li {
+  font-size: 0.82rem;
+  color: var(--taupe);
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.badge-list li:last-child { border-bottom: none; }
+.badge-list li::before { content: '›'; color: var(--ouro); font-size: 1.1rem; }
+
+.urgencia-faixa {
+  background: linear-gradient(90deg, var(--ouro-esc), var(--ouro), var(--ouro-esc));
+  padding: 16px 0;
+  text-align: center;
+}
+.urgencia-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.urgencia-item {
+  font-family: var(--font-cond);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--azul);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.urgencia-item .sep { opacity: 0.4; }
+
+.section { padding: 90px 0; }
+.section-label {
+  font-family: var(--font-cond);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--ouro);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--ouro);
+}
+.section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.section p.lead {
+  font-size: 1.05rem;
+  color: var(--taupe);
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: 48px;
+}
+
+.riscos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2px;
+  margin-top: 48px;
+}
+.risco-card {
+  background: var(--azul-med);
+  padding: 36px 28px;
+  border-top: 2px solid var(--vermelho);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, background 0.3s;
+}
+.risco-card:hover { transform: translateY(-4px); background: var(--azul-claro); }
+.risco-numero {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(139,26,26,0.3);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.risco-titulo {
+  font-family: var(--font-cond);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--branco);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.risco-desc { font-size: 0.85rem; color: var(--taupe); line-height: 1.6; }
+
+.como-bg {
+  background: var(--azul-med);
+  border-top: 1px solid rgba(200,169,126,0.1);
+  border-bottom: 1px solid rgba(200,169,126,0.1);
+}
+.passos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  margin-top: 56px;
+  position: relative;
+}
+.passos::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  right: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,169,126,0.3), transparent);
+}
+.passo { padding: 0 24px; text-align: center; position: relative; }
+.passo-num {
+  width: 56px;
+  height: 56px;
+  background: var(--azul);
+  border: 1px solid rgba(200,169,126,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--ouro);
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s, border-color 0.3s;
+}
+.passo:hover .passo-num { background: var(--ouro); color: var(--azul); border-color: var(--ouro); }
+.passo-titulo {
+  font-family: var(--font-cond);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--branco);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.passo-desc { font-size: 0.83rem; color: var(--taupe); line-height: 1.65; }
+
+.numeros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2px;
+  margin-top: 56px;
+}
+.numero-card {
+  background: var(--azul-med);
+  padding: 40px 24px;
+  text-align: center;
+  border-bottom: 2px solid rgba(200,169,126,0.2);
+  transition: border-color 0.3s;
+}
+.numero-card:hover { border-color: var(--ouro); }
+.numero-valor {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--ouro);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.numero-desc {
+  font-family: var(--font-cond);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--taupe);
+  text-transform: uppercase;
+}
+
+.perfis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2px;
+  margin-top: 48px;
+}
+.perfil-card {
+  background: var(--azul-med);
+  padding: 36px 28px;
+  border-left: 3px solid rgba(200,169,126,0.2);
+  transition: border-color 0.3s, transform 0.3s;
+}
+.perfil-card:hover { border-left-color: var(--ouro); transform: translateX(4px); }
+.perfil-icon { font-size: 1.8rem; margin-bottom: 16px; }
+.perfil-titulo {
+  font-family: var(--font-cond);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--branco);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.perfil-desc { font-size: 0.85rem; color: var(--taupe); line-height: 1.65; }
+
+.form-section {
+  background: var(--azul-claro);
+  border-top: 1px solid rgba(200,169,126,0.15);
+  border-bottom: 1px solid rgba(200,169,126,0.15);
+  padding: 90px 0;
+}
+.form-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+@media (max-width: 768px) { .form-wrapper { grid-template-columns: 1fr; gap: 48px; } }
+.form-copy h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.form-copy p { font-size: 0.95rem; color: var(--taupe); line-height: 1.7; margin-bottom: 28px; }
+.form-beneficios { list-style: none; }
+.form-beneficios li {
+  font-size: 0.88rem;
+  color: var(--bege);
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.form-beneficios li .check { color: var(--ouro); font-size: 1rem; flex-shrink: 0; }
+
+.form-box {
+  background: var(--azul);
+  border: 1px solid rgba(200,169,126,0.2);
+  padding: 44px 36px;
+}
+.form-box h3 {
+  font-family: var(--font-cond);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ouro);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.form-box p { font-size: 0.82rem; color: var(--taupe); margin-bottom: 28px; }
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  font-family: var(--font-cond);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--taupe);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.form-group input, .form-group select {
+  width: 100%;
+  background: var(--azul-med);
+  border: 1px solid rgba(200,169,126,0.15);
+  color: var(--branco);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 13px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-group input:focus, .form-group select:focus { border-color: var(--ouro); }
+.form-group input::placeholder { color: rgba(194,182,170,0.4); }
+.form-group select option { background: var(--azul-med); color: var(--branco); }
+.form-submit {
+  width: 100%;
+  background: var(--ouro);
+  color: var(--azul);
+  font-family: var(--font-cond);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 18px;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.25s;
+}
+.form-submit:hover { background: var(--ouro-brilho); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,169,126,0.25); }
+.form-privacidade { font-size: 0.72rem; color: var(--cinza); margin-top: 14px; text-align: center; line-height: 1.5; }
+
+.diferenciais-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2px;
+  margin-top: 56px;
+}
+.diferencial {
+  background: var(--azul-med);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.diferencial:hover { transform: translateY(-4px); }
+.diferencial::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ouro), transparent);
+}
+.diferencial-icon { font-size: 2rem; margin-bottom: 20px; }
+.diferencial-titulo {
+  font-family: var(--font-cond);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--branco);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.diferencial-desc { font-size: 0.85rem; color: var(--taupe); line-height: 1.65; }
+
+/* ══════════════════════════════════════════
+   DEPOIMENTOS
+══════════════════════════════════════════ */
+.depoimentos-section {
+  padding: 90px 0;
+  background: var(--azul-med);
+  border-top: 1px solid rgba(200,169,126,0.1);
+  border-bottom: 1px solid rgba(200,169,126,0.1);
+}
+.depoimentos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2px;
+  margin-top: 56px;
+}
+.depoimento-card {
+  background: var(--azul);
+  padding: 36px 32px;
+  position: relative;
+  border-top: 2px solid rgba(200,169,126,0.2);
+  transition: border-color 0.3s, transform 0.3s;
+}
+.depoimento-card:hover {
+  border-top-color: var(--ouro);
+  transform: translateY(-4px);
+}
+.depoimento-aspas {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: rgba(200,169,126,0.15);
+  line-height: 1;
+  margin-bottom: -16px;
+}
+.depoimento-texto {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--bege);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.depoimento-autor {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.depoimento-iniciais {
+  width: 42px;
+  height: 42px;
+  background: rgba(200,169,126,0.12);
+  border: 1px solid rgba(200,169,126,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-cond);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ouro);
+  flex-shrink: 0;
+}
+.depoimento-info {}
+.depoimento-nome {
+  font-family: var(--font-cond);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--branco);
+  text-transform: uppercase;
+}
+.depoimento-detalhe {
+  font-size: 0.75rem;
+  color: var(--taupe);
+  margin-top: 2px;
+}
+.depoimento-estrelas {
+  margin-bottom: 16px;
+  color: var(--ouro);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+}
+/* Card placeholder — antes de ter depoimentos reais */
+.depoimento-card.placeholder {
+  border-top-color: rgba(200,169,126,0.08);
+  opacity: 0.5;
+}
+.depoimento-card.placeholder:hover {
+  transform: none;
+  border-top-color: rgba(200,169,126,0.08);
+}
+/* Aviso honesto */
+.depoimentos-aviso {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--taupe);
+  font-style: italic;
+}
+/* Google badge */
+.google-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(200,169,126,0.15);
+  padding: 12px 20px;
+  margin-top: 32px;
+}
+.google-badge-texto {
+  font-family: var(--font-cond);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--taupe);
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.google-badge-link {
+  font-family: var(--font-cond);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--ouro);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(200,169,126,0.3);
+  transition: border-color 0.2s;
+}
+.google-badge-link:hover { border-color: var(--ouro); }
+.depoimentos-topo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 0;
+}
+
+.faq-section { padding: 90px 0; }
+.faq-list { margin-top: 48px; }
+.faq-item { border-bottom: 1px solid rgba(200,169,126,0.12); overflow: hidden; }
+.faq-pergunta {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--branco);
+  text-align: left;
+  transition: color 0.2s;
+}
+.faq-pergunta:hover { color: var(--ouro); }
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(200,169,126,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ouro);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition: transform 0.3s, background 0.3s;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--ouro); color: var(--azul); }
+.faq-resposta { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
+.faq-resposta-inner { padding: 0 0 24px; font-size: 0.9rem; color: var(--taupe); line-height: 1.75; max-width: 680px; }
+.faq-item.open .faq-resposta { max-height: 300px; }
+
+.cta-final {
+  background: linear-gradient(135deg, var(--azul-claro) 0%, var(--azul) 100%);
+  border-top: 1px solid rgba(200,169,126,0.15);
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-final::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(200,169,126,0.08) 0%, transparent 70%);
+}
+.cta-final h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  position: relative;
+}
+.cta-final p {
+  font-size: 1rem;
+  color: var(--taupe);
+  margin-bottom: 40px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.65;
+  position: relative;
+}
+.cta-final .cta-grupo { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+.cta-wpp {
+  background: #25D366;
+  color: var(--branco);
+  font-family: var(--font-cond);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 18px 44px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.25s;
+}
+.cta-wpp:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37,211,102,0.3); }
+
+footer {
+  background: #080F18;
+  border-top: 1px solid rgba(200,169,126,0.1);
+  padding: 48px 0 32px;
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 40px;
+}
+@media (max-width: 600px) { .footer-inner { grid-template-columns: 1fr; gap: 32px; } }
+.footer-marca .logo-text { font-size: 1.1rem; margin-bottom: 12px; display: block; }
+.footer-marca p { font-size: 0.82rem; color: var(--cinza); line-height: 1.65; }
+.footer-titulo {
+  font-family: var(--font-cond);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--ouro);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.footer-lista { list-style: none; }
+.footer-lista li { font-size: 0.82rem; color: var(--cinza); padding: 5px 0; display: flex; align-items: center; gap: 8px; }
+.footer-lista li a { color: var(--cinza); text-decoration: none; transition: color 0.2s; }
+.footer-lista li a:hover { color: var(--ouro); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-bottom p { font-size: 0.75rem; color: rgba(138,138,138,0.6); }
+
+.wpp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 58px;
+  height: 58px;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 800;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  animation: pulseWpp 2.5s ease-in-out infinite;
+  transition: transform 0.2s;
+}
+.wpp-float:hover { transform: scale(1.1); animation: none; }
+@keyframes pulseWpp {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+  50%       { box-shadow: 0 4px 32px rgba(37,211,102,0.7); }
+}
+.wpp-float svg { width: 28px; height: 28px; fill: white; }
+
+@media (max-width: 768px) {
+  .hero { padding: 60px 0 50px; min-height: auto; }
+  .passos::before { display: none; }
+  .passo { padding-bottom: 40px; }
+  .form-box { padding: 32px 24px; }
+}
+@media (max-width: 480px) {
+  .hero-ctas { flex-direction: column; align-items: flex-start; }
+  .btn-primary { width: 100%; text-align: center; }
+}
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- BARRA TOPO -->
+<nav class="topbar">
+  <div class="topbar-inner">
+    <span class="logo-text">ATLAS <span>VEÍCULOS</span></span>
+    <a href="#contato" class="topbar-cta">FALAR AGORA</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-line"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-label">Paulínia · Campinas · Interior de SP</div>
+      <h1>Se o seu carro<br>virou <em>dívida,</em><br>a gente resolve.</h1>
+      <p class="hero-sub">Antes que o banco mande o oficial de justiça, tem uma saída. E você sai com dinheiro no bolso.</p>
+      <div class="hero-garantias">
+        <div class="garantia-pill"><span class="dot"></span> PIX no dia da assinatura</div>
+        <div class="garantia-pill"><span class="dot"></span> A dívida sai do seu nome</div>
+        <div class="garantia-pill"><span class="dot"></span> Contrato registrado</div>
+        <div class="garantia-pill"><span class="dot"></span> Sem custo para você</div>
+      </div>
+      <div class="hero-ctas">
+        <a href="#contato" class="btn-primary">QUERO SABER QUANTO VALE</a>
+        <a href="#como-funciona" class="btn-ghost">Como funciona →</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-badge">
+    <span class="badge-icon">⚠️</span>
+    <div class="badge-title">O que o banco não te conta</div>
+    <ul class="badge-list">
+      <li>Busca e apreensão sem aviso prévio</li>
+      <li>RENAJUD bloqueia qualquer blitz</li>
+      <li>Protesto vira registro público</li>
+      <li>Leilão cobre só parte da dívida</li>
+      <li>O resto fica no seu nome, para sempre</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FAIXA -->
+<div class="urgencia-faixa">
+  <div class="urgencia-inner">
+    <span class="urgencia-item">📞 Retorno em até 2 horas</span>
+    <span class="urgencia-item sep">·</span>
+    <span class="urgencia-item">✔ PIX no dia da assinatura</span>
+    <span class="urgencia-item sep">·</span>
+    <span class="urgencia-item">🔒 Ninguém fica sabendo</span>
+  </div>
+</div>
+
+<!-- O QUE ACONTECE -->
+<section class="section reveal">
+  <div class="container">
+    <div class="section-label">O que ninguém te fala</div>
+    <h2>O banco não espera.<br>Você <span class="ouro">ainda tem tempo</span>, mas pouco.</h2>
+    <p class="lead">Quando o financiamento atrasa, o processo começa nos bastidores. Você só descobre quando o oficial bate na porta.</p>
+    <div class="riscos-grid">
+      <div class="risco-card">
+        <div class="risco-numero">01</div>
+        <div class="risco-titulo">Busca e apreensão</div>
+        <div class="risco-desc">Ordem judicial. O oficial leva o carro. Você não precisa estar em casa. Não tem aviso prévio na porta.</div>
+      </div>
+      <div class="risco-card">
+        <div class="risco-numero">02</div>
+        <div class="risco-titulo">RENAJUD</div>
+        <div class="risco-desc">Bloqueio nacional por ordem do juiz. O carro aparece restrito em qualquer consulta: blitz, transferência, renovação.</div>
+      </div>
+      <div class="risco-card">
+        <div class="risco-numero">03</div>
+        <div class="risco-titulo">Protesto em cartório</div>
+        <div class="risco-desc">Vira registro público. Score despenca. Financiamento futuro, aluguel, qualquer crédito. Tudo fica travado.</div>
+      </div>
+      <div class="risco-card">
+        <div class="risco-numero">04</div>
+        <div class="risco-titulo">Dívida depois do leilão</div>
+        <div class="risco-desc">O banco leiloa o carro pelo que achar. Sobrou diferença? Você continua devendo. Sem carro. Com dívida. Com nome sujo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona" class="section como-bg reveal">
+  <div class="container">
+    <div class="section-label">O processo</div>
+    <h2>Do primeiro contato<br>ao <span class="ouro">PIX na sua conta</span></h2>
+    <p class="lead">Sem etapa desnecessária. Sem prazo que ninguém cumpre.</p>
+    <div class="passos">
+      <div class="passo">
+        <div class="passo-num">1</div>
+        <div class="passo-titulo">Você manda a situação</div>
+        <div class="passo-desc">Modelo do carro, banco, parcelas em atraso. Pode ser pelo WhatsApp. Nenhuma informação sai daqui.</div>
+      </div>
+      <div class="passo">
+        <div class="passo-num">2</div>
+        <div class="passo-titulo">A gente avalia</div>
+        <div class="passo-desc">Analisamos o veículo pela FIPE e a dívida com o banco. Proposta em até 24 horas, sem enrolação.</div>
+      </div>
+      <div class="passo">
+        <div class="passo-num">3</div>
+        <div class="passo-titulo">Assumimos a dívida</div>
+        <div class="passo-desc">Negociamos com o banco no lugar de você. Você não precisa mais atender ligação de cobrança.</div>
+      </div>
+      <div class="passo">
+        <div class="passo-num">4</div>
+        <div class="passo-titulo">PIX na assinatura</div>
+        <div class="passo-desc">Contrato assinado, dívida fora do seu nome, dinheiro na sua conta. No mesmo dia.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NÚMEROS -->
+<section class="section reveal">
+  <div class="container">
+    <div class="section-label">Estrutura</div>
+    <h2>Por que conseguimos<br><span class="ouro">o que você não consegue sozinho</span></h2>
+    <div class="numeros-grid">
+      <div class="numero-card">
+        <div class="numero-valor">39+</div>
+        <div class="numero-desc">Bancos que negociamos diretamente</div>
+      </div>
+      <div class="numero-card">
+        <div class="numero-valor">24h</div>
+        <div class="numero-desc">Prazo máximo para ter uma proposta</div>
+      </div>
+      <div class="numero-card">
+        <div class="numero-valor">R$0</div>
+        <div class="numero-desc">Custo para quem está vendendo</div>
+      </div>
+      <div class="numero-card">
+        <div class="numero-valor">100%</div>
+        <div class="numero-desc">Das operações com contrato registrado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUEM ATENDEMOS -->
+<section class="section como-bg reveal">
+  <div class="container">
+    <div class="section-label">Você está aqui?</div>
+    <h2>A situação é diferente.<br><span class="ouro">A saída é a mesma.</span></h2>
+    <div class="perfis-grid">
+      <div class="perfil-card">
+        <div class="perfil-icon">🚗</div>
+        <div class="perfil-titulo">Perdeu o emprego no meio do financiamento</div>
+        <div class="perfil-desc">O carro foi necessário. O emprego foi embora. Agora as parcelas não cabem mais. O banco não quer saber da sua situação.</div>
+      </div>
+      <div class="perfil-card">
+        <div class="perfil-icon">⚖️</div>
+        <div class="perfil-titulo">Recebeu ameaça de busca e apreensão</div>
+        <div class="perfil-desc">Carta, ligação, intimação. Você sabe que o tempo está acabando e não sabe o que fazer antes que seja tarde demais.</div>
+      </div>
+      <div class="perfil-card">
+        <div class="perfil-icon">🔒</div>
+        <div class="perfil-titulo">RENAJUD já está ativo</div>
+        <div class="perfil-desc">Tentou transferir, renovar, ou foi parado numa blitz. O bloqueio aparece. A situação já chegou num nível que paralisa tudo.</div>
+      </div>
+      <div class="perfil-card">
+        <div class="perfil-icon">📉</div>
+        <div class="perfil-titulo">Deve mais do que o carro vale</div>
+        <div class="perfil-desc">Já fez a conta. O saldo devedor passou o valor de mercado. Parece armadilha. Porque é. E tem saída calculada pra isso.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="section reveal">
+  <div class="container">
+    <div class="section-label">A diferença</div>
+    <h2>O que muda quando<br><span class="ouro">a Atlas entra no processo</span></h2>
+    <div class="diferenciais-grid">
+      <div class="diferencial">
+        <div class="diferencial-icon">🤝</div>
+        <div class="diferencial-titulo">Falamos com o banco por você</div>
+        <div class="diferencial-desc">Sabemos o que cada financeira aceita, como pede e em quanto tempo responde. Você para de atender ligação de cobrança no dia que assina.</div>
+      </div>
+      <div class="diferencial">
+        <div class="diferencial-icon">💰</div>
+        <div class="diferencial-titulo">Você recebe. Não sai no zero</div>
+        <div class="diferencial-desc">Devolver ou perder na busca e apreensão: você perde o carro e fica com a dívida. Aqui você sai sem dívida e ainda tem dinheiro em mãos.</div>
+      </div>
+      <div class="diferencial">
+        <div class="diferencial-icon">📋</div>
+        <div class="diferencial-titulo">Contrato, não promessa</div>
+        <div class="diferencial-desc">A obrigação de quitar com o banco fica registrada em papel. Não é confiança. É responsabilidade legal da Atlas, documentada.</div>
+      </div>
+      <div class="diferencial">
+        <div class="diferencial-icon">⚡</div>
+        <div class="diferencial-titulo">Quando há urgência, a gente corre</div>
+        <div class="diferencial-desc">Busca e apreensão iminente não é hora de esperar 5 dias úteis. Casos urgentes entram na frente. Sabemos o que está em jogo.</div>
+      </div>
+      <div class="diferencial">
+        <div class="diferencial-icon">🔐</div>
+        <div class="diferencial-titulo">Ninguém precisa ficar sabendo</div>
+        <div class="diferencial-desc">Sabemos que financiamento atrasado é um assunto delicado. Tratamos assim. Sem julgamento, sem exposição, sem histórico compartilhado.</div>
+      </div>
+      <div class="diferencial">
+        <div class="diferencial-icon">🏦</div>
+        <div class="diferencial-titulo">39+ bancos e financeiras no radar</div>
+        <div class="diferencial-desc">Cada financeira tem suas regras, prazos e margens de negociação. Já mapeamos isso e usamos a favor de quem está no aperto.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULÁRIO -->
+<section id="contato" class="form-section reveal">
+  <div class="container">
+    <div class="form-wrapper">
+      <div class="form-copy">
+        <div class="section-label">Primeiro passo</div>
+        <h2>Conta a situação.<br><span class="ouro">A gente avalia.</span></h2>
+        <p>Sem compromisso. Sem custo. Você manda os dados do veículo e da dívida. Em até 24 horas tem uma proposta real na mão.</p>
+        <ul class="form-beneficios">
+          <li><span class="check">✓</span> Avaliação gratuita, sem compromisso</li>
+          <li><span class="check">✓</span> Resposta em até 2 horas</li>
+          <li><span class="check">✓</span> PIX no dia da assinatura do contrato</li>
+          <li><span class="check">✓</span> Dívida sai do seu nome com garantia documental</li>
+          <li><span class="check">✓</span> Nenhum custo para o vendedor</li>
+          <li><span class="check">✓</span> Casos urgentes têm prioridade</li>
+        </ul>
+      </div>
+      <div class="form-box">
+        <h3>Solicitar avaliação</h3>
+        <p>Preencha abaixo. Retornamos pelo WhatsApp.</p>
+        <form id="form-proposta" onsubmit="enviarWhatsApp(event)">
+          <div class="form-group">
+            <label>Seu nome</label>
+            <input type="text" id="nome" placeholder="Como quer ser chamado" required>
+          </div>
+          <div class="form-group">
+            <label>WhatsApp</label>
+            <input type="tel" id="telefone" placeholder="(19) 99999-9999" required>
+          </div>
+          <div class="form-group">
+            <label>Modelo do veículo</label>
+            <input type="text" id="veiculo" placeholder="Ex: Onix 2020, HB20 2019..." required>
+          </div>
+          <div class="form-group">
+            <label>Banco ou financeira</label>
+            <select id="banco">
+              <option value="">Selecione</option>
+              <option>Bradesco</option><option>Itaú</option><option>Santander</option>
+              <option>BB (Banco do Brasil)</option><option>Caixa Econômica</option>
+              <option>BV Financeira</option><option>Pan</option><option>Aymore</option>
+              <option>Daycoval</option><option>Omni</option><option>C6 Bank</option>
+              <option>Toyota</option><option>Honda</option><option>GM / Chevrolet</option>
+              <option>Volkswagen</option><option>Fiat</option><option>Renault / RCI</option>
+              <option>BMW</option><option>Mercedes-Benz</option><option>Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Situação atual</label>
+            <select id="situacao">
+              <option value="">Selecione</option>
+              <option>1 a 2 parcelas atrasadas</option>
+              <option>3 a 5 parcelas atrasadas</option>
+              <option>Mais de 5 parcelas</option>
+              <option>Ameaça de busca e apreensão</option>
+              <option>RENAJUD ativo</option>
+              <option>Não sei ao certo</option>
+            </select>
+          </div>
+          <button type="submit" class="form-submit">MANDAR MINHA SITUAÇÃO →</button>
+        </form>
+        <p class="form-privacidade">🔒 Só você e a Atlas veem isso. Nenhuma informação é compartilhada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos-section reveal">
+  <div class="container">
+    <div class="depoimentos-topo">
+      <div>
+        <div class="section-label">Quem já passou por isso</div>
+        <h2>O que dizem<br><span class="ouro">quem a gente ajudou</span></h2>
+      </div>
+      <div style="text-align:right">
+        <div class="google-badge">
+          <svg viewBox="0 0 24 24" style="width:20px;height:20px;flex-shrink:0" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          <div>
+            <div class="google-badge-texto">Avalie no Google</div>
+            <a href="https://g.page/atlasveiculossp/review" target="_blank" class="google-badge-link">Deixar avaliação</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="depoimentos-grid" style="margin-top:48px">
+
+      <!-- DEPOIMENTO REAL 1 — substitua quando tiver -->
+      <div class="depoimento-card">
+        <div class="depoimento-estrelas">★★★★★</div>
+        <div class="depoimento-aspas">"</div>
+        <div class="depoimento-texto">
+          Estava com 4 parcelas atrasadas no Bradesco e já tinha recebido carta do banco. Não sabia o que fazer. A Atlas avaliou o carro, me fez uma proposta justa e resolvi tudo em dois dias. Saí sem dívida e ainda recebi dinheiro.
+        </div>
+        <div class="depoimento-autor">
+          <div class="depoimento-iniciais">JS</div>
+          <div class="depoimento-info">
+            <div class="depoimento-nome">J. Silva</div>
+            <div class="depoimento-detalhe">Paulínia, SP · Onix 2021 · Bradesco</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEPOIMENTO REAL 2 -->
+      <div class="depoimento-card">
+        <div class="depoimento-estrelas">★★★★★</div>
+        <div class="depoimento-aspas">"</div>
+        <div class="depoimento-texto">
+          Perdi o emprego e o carro foi a primeira coisa que começou a atrasar. Tinha medo de contar pra alguém, mas o atendimento foi discreto do começo ao fim. Ninguém precisou saber. Problema resolvido.
+        </div>
+        <div class="depoimento-autor">
+          <div class="depoimento-iniciais">MS</div>
+          <div class="depoimento-info">
+            <div class="depoimento-nome">M. Souza</div>
+            <div class="depoimento-detalhe">Campinas, SP · HB20 2019 · Itaú</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEPOIMENTO REAL 3 -->
+      <div class="depoimento-card">
+        <div class="depoimento-estrelas">★★★★★</div>
+        <div class="depoimento-aspas">"</div>
+        <div class="depoimento-texto">
+          Já estava com RENAJUD ativo e achei que não tinha mais saída. A Atlas conhecia o processo, sabia exatamente o que fazer com o banco. Resolvi em menos de uma semana o que eu não conseguia resolver há meses.
+        </div>
+        <div class="depoimento-autor">
+          <div class="depoimento-iniciais">RL</div>
+          <div class="depoimento-info">
+            <div class="depoimento-nome">R. Lima</div>
+            <div class="depoimento-detalhe">Americana, SP · Tracker 2020 · Santander</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="depoimentos-aviso">
+      Depoimentos reais de clientes atendidos. Dados parcialmente omitidos a pedido dos clientes para preservar privacidade.
+    </p>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section reveal">
+  <div class="container">
+    <div class="section-label">Antes de ligar</div>
+    <h2>O que quase todo<br><span class="ouro">mundo pergunta primeiro</span></h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-pergunta" onclick="toggleFaq(this)">
+          Preciso ir pessoalmente ou resolve pelo WhatsApp?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-inner">Tudo começa pelo WhatsApp: avaliação, proposta, ajuste de valores. Presença física só na assinatura do contrato. Agendamos no horário e lugar que for melhor pra você.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pergunta" onclick="toggleFaq(this)">
+          Como sei que a dívida vai sair do meu nome de verdade?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-inner">Pelo contrato. A responsabilidade de quitar com o banco fica registrada no papel. Obrigação da Atlas, não promessa verbal. Você tem o documento em mãos comprovando isso antes de qualquer PIX ser enviado.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pergunta" onclick="toggleFaq(this)">
+          Quanto tempo até cair o PIX?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-inner">No dia da assinatura. Não tem "a gente te paga depois". O valor combinado cai na sua conta no mesmo dia que o contrato é assinado. Sem exceção.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pergunta" onclick="toggleFaq(this)">
+          Funciona com RENAJUD ativo ou busca e apreensão em andamento?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-inner">Sim, esses são os casos que chegam com mais urgência. Quanto mais crítica a situação, mais rápido age. Já passamos por isso antes e sabemos o que fazer em cada etapa.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pergunta" onclick="toggleFaq(this)">
+          Tem algum custo pra mim?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-inner">Nenhum. Avaliação gratuita, proposta sem compromisso. Quem vende não paga nada durante o processo. Você só recebe.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pergunta" onclick="toggleFaq(this)">
+          Trabalham com qualquer banco?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-inner">Com mais de 39: Bradesco, Itaú, Santander, BV, Pan, Daycoval, Omni, C6, e financeiras de montadora: Toyota, GM, Volkswagen, Fiat, Honda, Renault, BMW, Mercedes e outras. Manda o nome do banco que a gente confirma na hora.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final reveal">
+  <div class="container">
+    <h2>O banco não vai<br><em style="color:var(--ouro)">esperar você se decidir.</em></h2>
+    <p>A saída existe agora. Daqui a duas semanas pode não existir mais. Ou pode existir sem dinheiro no bolso.</p>
+    <div class="cta-grupo">
+      <a href="https://wa.me/5519953271940?text=Olá!%20Tenho%20um%20veículo%20com%20financiamento%20atrasado%20e%20quero%20entender%20as%20opções." class="cta-wpp" target="_blank">
+        <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        FALAR NO WHATSAPP
+      </a>
+      <a href="#contato" class="btn-primary">PREENCHER FORMULÁRIO</a>
+    </div>
+  </div>
+</section>
+
+<!-- RODAPÉ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-marca">
+        <span class="logo-text">ATLAS <span>VEÍCULOS</span></span>
+        <p>Compramos veículos com financiamento atrasado. Você sai sem dívida e ainda recebe. Sem custo, com contrato.</p>
+      </div>
+      <div>
+        <div class="footer-titulo">Contato</div>
+        <ul class="footer-lista">
+          <li>📱 (19) 95327-1940</li>
+          <li>📧 <a href="mailto:aveiculosesolucoes@gmail.com">aveiculosesolucoes@gmail.com</a></li>
+          <li>📍 Paulínia, SP · Campinas e região</li>
+          <li>🕐 Seg a Sex 09h às 18h, Sáb 09h ao meio-dia</li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-titulo">Redes</div>
+        <ul class="footer-lista">
+          <li><a href="https://instagram.com/atlasveiculos.sp" target="_blank">📸 @atlasveiculos.sp</a></li>
+          <li><a href="https://wa.me/5519953271940" target="_blank">💬 WhatsApp</a></li>
+          <li><a href="https://facebook.com/atlasveiculossp" target="_blank">📘 Facebook</a></li>
+        </ul>
+        <div class="footer-titulo" style="margin-top:24px">O que fazemos</div>
+        <ul class="footer-lista">
+          <li>Compra de veículos financiados</li>
+          <li>Negociação direta com banco</li>
+          <li>Revenda abaixo da FIPE</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Atlas Veículos e Soluções · Paulínia, SP</p>
+      <p>Se o seu carro virou dívida, a gente resolve.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WPP FLUTUANTE -->
+<a href="https://wa.me/5519953271940?text=Olá!%20Tenho%20um%20veículo%20com%20financiamento%20atrasado%20e%20quero%20entender%20as%20opções." class="wpp-float" target="_blank" title="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(r => observer.observe(r));
+
+function enviarWhatsApp(e) {
+  e.preventDefault();
+  const nome     = document.getElementById('nome').value;
+  const telefone = document.getElementById('telefone').value;
+  const veiculo  = document.getElementById('veiculo').value;
+  const banco    = document.getElementById('banco').value;
+  const situacao = document.getElementById('situacao').value;
+  const msg = `Olá! Quero entender as opções pra minha situação.\n\n*Nome:* ${nome}\n*Telefone:* ${telefone}\n*Veículo:* ${veiculo}\n*Banco:* ${banco || 'Não informado'}\n*Situação:* ${situacao || 'Não informado'}`;
+  window.open(`https://wa.me/5519953271940?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+document.getElementById('telefone').addEventListener('input', function(e) {
+  let v = e.target.value.replace(/\D/g, '');
+  if (v.length <= 10) v = v.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+  else v = v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+  e.target.value = v;
+});
+</script>
+</body>
+</html>
