@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atlas Veículos - Se o seu carro virou dívida, a gente resolve.</title>
-<meta name="description" content="Compramos veículos com finahnciamento atrasado antes da busca e apreensão. Você sai sem dívida e ainda recebe. Paulínia, Campinas e região.">
+<meta name="description" content="Compramos veículos com financiamento atrasado antes da busca e apreensão. Você sai sem dívida e ainda recebe. Paulínia, Campinas e região.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
@@ -745,6 +745,184 @@ body::before {
   margin-bottom: 0;
 }
 
+/* ══════════════════════════════════════════
+   ORIGEM DA EMPRESA
+══════════════════════════════════════════ */
+.origem-section {
+  padding: 90px 0;
+  background: var(--bege);
+  border-top: 1px solid rgba(14,27,44,0.08);
+  border-bottom: 1px solid rgba(14,27,44,0.08);
+}
+.origem-section .section-label { color: var(--ouro-esc); }
+.origem-section .section-label::before { background: var(--ouro-esc); }
+.origem-section h2 { color: var(--azul); }
+.origem-intro {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  color: var(--ouro-esc);
+  line-height: 1.5;
+  max-width: 680px;
+  margin-bottom: 56px;
+  border-left: 3px solid var(--ouro);
+  padding-left: 24px;
+}
+.origem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 56px;
+}
+@media (max-width: 700px) { .origem-grid { grid-template-columns: 1fr; } }
+.origem-card {
+  background: var(--branco);
+  padding: 36px 32px;
+  border-top: 2px solid var(--ouro);
+  position: relative;
+}
+.origem-card-num {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(200,169,126,0.2);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.origem-card-texto {
+  font-size: 0.92rem;
+  color: #333;
+  line-height: 1.75;
+}
+.origem-card-texto strong { color: var(--azul); }
+
+/* Fundadores */
+.fundadores {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-top: 48px;
+}
+@media (max-width: 700px) { .fundadores { grid-template-columns: 1fr; } }
+.fundador-card {
+  background: var(--azul);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.fundador-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ouro-esc), var(--ouro));
+}
+.fundador-tag {
+  font-family: var(--font-cond);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: var(--ouro);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.fundador-nome {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--branco);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+.fundador-cargo {
+  font-family: var(--font-cond);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--ouro);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.fundador-bio {
+  font-size: 0.85rem;
+  color: var(--taupe);
+  line-height: 1.7;
+}
+.fundador-bio strong { color: var(--bege); }
+.fundador-social {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-cond);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: rgba(200,169,126,0.5);
+  text-transform: uppercase;
+}
+.fundador-social a {
+  color: var(--ouro);
+  text-decoration: none;
+  font-size: 0.7rem;
+  border-bottom: 1px solid rgba(200,169,126,0.3);
+  transition: border-color 0.2s;
+}
+.fundador-social a:hover { border-color: var(--ouro); }
+
+/* Linha do tempo origem */
+.origem-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 40px 0;
+  position: relative;
+}
+.origem-timeline::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--ouro), rgba(200,169,126,0.1));
+}
+.timeline-item {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 28px;
+  position: relative;
+}
+.timeline-dot {
+  width: 40px;
+  height: 40px;
+  background: var(--azul);
+  border: 1px solid rgba(200,169,126,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ouro);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.timeline-corpo {}
+.timeline-data {
+  font-family: var(--font-cond);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--ouro-esc);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.timeline-texto {
+  font-size: 0.9rem;
+  color: var(--azul);
+  line-height: 1.65;
+}
+.timeline-texto strong { color: var(--ouro-esc); font-weight: 600; }
+
 .faq-section { padding: 90px 0; }
 .faq-list { margin-top: 48px; }
 .faq-item { border-bottom: 1px solid rgba(200,169,126,0.12); overflow: hidden; }
@@ -1264,6 +1442,75 @@ footer {
     <p class="depoimentos-aviso">
       Depoimentos reais de clientes atendidos. Dados parcialmente omitidos a pedido dos clientes para preservar privacidade.
     </p>
+
+  </div>
+</section>
+
+<!-- ORIGEM -->
+<section class="origem-section reveal">
+  <div class="container">
+    <div class="section-label">Como surgiu</div>
+    <h2 style="color:var(--azul)">Tudo começou com<br><span style="color:var(--ouro-esc)">uma pergunta.</span></h2>
+
+    <div class="origem-intro">
+      "Qual a melhor forma de comprar um carro?"
+    </div>
+
+    <div class="origem-timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">1</div>
+        <div class="timeline-corpo">
+          <div class="timeline-data">15 de abril de 2026</div>
+          <div class="timeline-texto">A irmã do Vinícius fez uma pergunta simples. Ele não sabia responder. Mas não conseguia parar de pensar nisso.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">2</div>
+        <div class="timeline-corpo">
+          <div class="timeline-data">A pesquisa</div>
+          <div class="timeline-texto">Vinícius começou a pesquisar e encontrou um mercado pouco explorado: <strong>comprar carros com financiamento em atraso, limpar o nome do dono, quitar a dívida e ainda vender o mesmo carro pela metade do valor de mercado.</strong></div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">3</div>
+        <div class="timeline-corpo">
+          <div class="timeline-data">A decisão</div>
+          <div class="timeline-texto">Vinícius e Bárbara tinham o desejo de construir algo juntos. Algo que pudessem olhar e dizer: <strong>isso muda a vida de alguém.</strong> Quando ele trouxe a ideia, ela não hesitou. "Conseguiríamos ajudar quem estava endividado e quem precisava de um carro por um valor justo. Isso era mais do que buscávamos: faríamos o bem através dos negócios."</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">4</div>
+        <div class="timeline-corpo">
+          <div class="timeline-data">O nascimento</div>
+          <div class="timeline-texto">Foi aí que decidiram: vamos abrir uma empresa. Assim nasceu a <strong>Atlas Veículos e Soluções.</strong> Onde não apenas vendemos carros, mas resolvemos.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fundadores">
+      <div class="fundador-card">
+        <div class="fundador-tag">Cofundador</div>
+        <div class="fundador-nome">Vinícius<br>Padovani</div>
+        <div class="fundador-cargo">Fundador · Atlas Veículos e Soluções</div>
+        <div class="fundador-bio">
+          Sempre foi o curioso, o inquieto, o que não parava de pesquisar, procurar, perguntar. <strong>Sempre enxergou oportunidade onde outros não olhavam.</strong> Empresário serial com negócios ativos em logística, tecnologia e representação comercial.
+        </div>
+        <div class="fundador-social">
+          WhatsApp: <a href="https://wa.me/5519953271940">(19) 95327-1940</a>
+        </div>
+      </div>
+      <div class="fundador-card">
+        <div class="fundador-tag">Cofundadora</div>
+        <div class="fundador-nome">Bárbara<br>Padovani</div>
+        <div class="fundador-cargo">Nutricionista Pediatra · Cofundadora</div>
+        <div class="fundador-bio">
+          <strong>"Sempre fui a pessoa que não consegue ver alguém em dificuldade sem querer fazer algo por ela. Desde criança é assim. Ajudar sempre queimou no meu coração."</strong> Nutricionista pediatra com negócios ativos e presença digital consolidada.
+        </div>
+        <div class="fundador-social">
+          Instagram: <a href="https://instagram.com/nutri.maternoinf" target="_blank">@nutri.maternoinf</a>
+        </div>
+      </div>
+    </div>
 
   </div>
 </section>
