@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas Veículos — Links</title>
+<meta name="description" content="Se o seu carro virou dívida, a gente resolve. Compramos veículos financiados antes da busca e apreensão.">
+
+<!-- Open Graph para quando compartilhar o link -->
+<meta property="og:title" content="Atlas Veículos e Soluções">
+<meta property="og:description" content="Se o seu carro virou dívida, a gente resolve.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,700&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --azul:     #0E1B2C;
+  --azul-med: #162437;
+  --azul-cl:  #1E3050;
+  --ouro:     #C8A97E;
+  --ouro-esc: #A07840;
+  --ouro-bri: #D4B896;
+  --bege:     #F2EDD8;
+  --taupe:    #C2B6AA;
+  --branco:   #FFFFFF;
+  --verde-wpp:#25D366;
+
+  --fd: 'Cormorant Garamond', serif;
+  --fb: 'Barlow', sans-serif;
+  --fc: 'Barlow Condensed', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--fb);
+  background: var(--azul);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Fundo com textura */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(200,169,126,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 100%, rgba(200,169,126,0.05) 0%, transparent 60%),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 60px,
+      rgba(200,169,126,0.015) 60px,
+      rgba(200,169,126,0.015) 61px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── WRAPPER ─────────────────────────────── */
+.wrapper {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 48px 20px 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── PERFIL ──────────────────────────────── */
+.perfil {
+  text-align: center;
+  margin-bottom: 36px;
+  animation: fadeDown 0.7s ease both;
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.perfil-avatar {
+  width: 82px;
+  height: 82px;
+  margin: 0 auto 16px;
+  position: relative;
+}
+.perfil-avatar-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--ouro-esc), var(--ouro), var(--ouro-esc));
+  animation: girarRing 4s linear infinite;
+}
+@keyframes girarRing {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.perfil-avatar-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--azul-med);
+  border: 3px solid var(--azul);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.perfil-avatar-letra {
+  font-family: var(--fc);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ouro);
+  letter-spacing: -0.02em;
+}
+
+.perfil-nome {
+  font-family: var(--fc);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--branco);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.perfil-nome span { color: var(--ouro); }
+
+.perfil-handle {
+  font-family: var(--fc);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--taupe);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.perfil-tagline {
+  font-family: var(--fd);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--bege);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.perfil-local {
+  font-family: var(--fc);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--taupe);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.perfil-local::before {
+  content: '◈';
+  color: var(--ouro);
+  font-size: 0.5rem;
+}
+
+/* ── DIVISOR ─────────────────────────────── */
+.divisor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 0 24px;
+}
+.divisor-linha {
+  flex: 1;
+  height: 1px;
+  background: rgba(200,169,126,0.15);
+}
+.divisor-texto {
+  font-family: var(--fc);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: var(--ouro);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── SEÇÃO LABEL ─────────────────────────── */
+.secao-label {
+  font-family: var(--fc);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: var(--taupe);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+/* ── LINKS ───────────────────────────────── */
+.links-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: fadeUp 0.6s ease both;
+}
+.link-btn:hover {
+  transform: translateY(-2px);
+}
+.link-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.04);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.link-btn:hover::before { opacity: 1; }
+
+/* Variantes de cor */
+.link-btn.primario {
+  background: linear-gradient(135deg, var(--ouro-esc) 0%, var(--ouro) 50%, var(--ouro-esc) 100%);
+  box-shadow: 0 4px 20px rgba(200,169,126,0.25);
+}
+.link-btn.primario:hover {
+  box-shadow: 0 8px 32px rgba(200,169,126,0.4);
+}
+.link-btn.primario .link-texto,
+.link-btn.primario .link-sub {
+  color: var(--azul) !important;
+}
+.link-btn.primario .link-icone-wrap {
+  background: rgba(14,27,44,0.15);
+}
+
+.link-btn.escuro {
+  background: var(--azul-med);
+  border: 1px solid rgba(200,169,126,0.15);
+}
+.link-btn.escuro:hover {
+  border-color: rgba(200,169,126,0.35);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.link-btn.wpp {
+  background: linear-gradient(135deg, #128C7E, #25D366);
+  box-shadow: 0 4px 20px rgba(37,211,102,0.2);
+}
+.link-btn.wpp:hover {
+  box-shadow: 0 8px 32px rgba(37,211,102,0.35);
+}
+.link-btn.wpp .link-texto { color: var(--branco) !important; }
+.link-btn.wpp .link-sub   { color: rgba(255,255,255,0.7) !important; }
+.link-btn.wpp .link-icone-wrap { background: rgba(255,255,255,0.15); }
+
+.link-btn.outline {
+  background: transparent;
+  border: 1px solid rgba(200,169,126,0.2);
+}
+.link-btn.outline:hover {
+  border-color: rgba(200,169,126,0.4);
+  background: rgba(200,169,126,0.04);
+}
+
+/* Delay de animação por item */
+.link-btn:nth-child(1) { animation-delay: 0.1s; }
+.link-btn:nth-child(2) { animation-delay: 0.18s; }
+.link-btn:nth-child(3) { animation-delay: 0.26s; }
+.link-btn:nth-child(4) { animation-delay: 0.34s; }
+.link-btn:nth-child(5) { animation-delay: 0.42s; }
+.link-btn:nth-child(6) { animation-delay: 0.50s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.link-icone-wrap {
+  width: 40px;
+  height: 40px;
+  background: rgba(200,169,126,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+}
+
+.link-info {
+  flex: 1;
+}
+.link-texto {
+  font-family: var(--fc);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--branco);
+  text-transform: uppercase;
+  display: block;
+  line-height: 1.2;
+}
+.link-sub {
+  font-size: 0.75rem;
+  color: var(--taupe);
+  margin-top: 3px;
+  display: block;
+  line-height: 1.3;
+}
+
+.link-seta {
+  color: var(--ouro);
+  font-size: 1rem;
+  opacity: 0.5;
+  flex-shrink: 0;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.link-btn:hover .link-seta {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+/* ── URGÊNCIA CARD ───────────────────────── */
+.urgencia-card {
+  background: linear-gradient(135deg, rgba(139,26,26,0.15), rgba(139,26,26,0.05));
+  border: 1px solid rgba(139,26,26,0.3);
+  border-left: 3px solid #DC2626;
+  padding: 16px 18px;
+  margin-bottom: 24px;
+  animation: fadeUp 0.6s ease both 0.05s;
+}
+.urgencia-titulo {
+  font-family: var(--fc);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: #FF8080;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.urgencia-titulo::before {
+  content: '⚠';
+  font-size: 0.7rem;
+}
+.urgencia-texto {
+  font-size: 0.82rem;
+  color: var(--taupe);
+  line-height: 1.55;
+}
+.urgencia-texto strong { color: var(--bege); }
+
+/* ── MINI STATS ──────────────────────────── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-bottom: 24px;
+  animation: fadeUp 0.6s ease both 0.3s;
+}
+.stat-item {
+  background: var(--azul-med);
+  padding: 14px 10px;
+  text-align: center;
+  border: 1px solid rgba(200,169,126,0.08);
+}
+.stat-valor {
+  font-family: var(--fd);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ouro);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-family: var(--fc);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  color: var(--taupe);
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+/* ── REDES SOCIAIS ───────────────────────── */
+.redes {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  animation: fadeUp 0.6s ease both 0.55s;
+}
+.rede-btn {
+  width: 44px;
+  height: 44px;
+  background: var(--azul-med);
+  border: 1px solid rgba(200,169,126,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+  font-size: 1.1rem;
+}
+.rede-btn:hover {
+  border-color: rgba(200,169,126,0.4);
+  transform: translateY(-2px);
+}
+
+/* ── HORÁRIO ─────────────────────────────── */
+.horario-box {
+  background: var(--azul-med);
+  border: 1px solid rgba(200,169,126,0.1);
+  padding: 16px 18px;
+  margin-bottom: 24px;
+  animation: fadeUp 0.6s ease both 0.45s;
+}
+.horario-linha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.horario-linha:last-child { border-bottom: none; }
+.horario-dia {
+  font-family: var(--fc);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--taupe);
+  text-transform: uppercase;
+}
+.horario-tempo {
+  font-family: var(--fc);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--bege);
+}
+.horario-fechado {
+  font-family: var(--fc);
+  font-size: 0.68rem;
+  color: rgba(194,182,170,0.35);
+  letter-spacing: 0.08em;
+}
+
+/* ── RODAPÉ ──────────────────────────────── */
+.rodape {
+  text-align: center;
+  animation: fadeUp 0.6s ease both 0.6s;
+}
+.rodape-texto {
+  font-family: var(--fd);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: rgba(194,182,170,0.4);
+  line-height: 1.5;
+}
+.rodape-copy {
+  font-family: var(--fc);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: rgba(194,182,170,0.2);
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+/* ── PULSE no botão WPP ──────────────────── */
+@keyframes pulseGreen {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.2); }
+  50%       { box-shadow: 0 4px 32px rgba(37,211,102,0.45); }
+}
+.link-btn.wpp { animation: fadeUp 0.6s ease both 0.1s, pulseGreen 2.5s ease-in-out 1s infinite; }
+.link-btn.wpp:hover { animation: none; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- PERFIL -->
+  <div class="perfil">
+    <div class="perfil-avatar">
+      <div class="perfil-avatar-ring"></div>
+      <div class="perfil-avatar-inner">
+        <span class="perfil-avatar-letra">A</span>
+      </div>
+    </div>
+    <div class="perfil-nome">ATLAS <span>VEÍCULOS</span></div>
+    <div class="perfil-handle">@atlasveiculos.sp</div>
+    <div class="perfil-tagline">Se o seu carro virou dívida,<br>a gente resolve.</div>
+    <div style="height:6px"></div>
+    <div style="font-family:var(--fc);font-size:0.62rem;letter-spacing:0.12em;color:var(--taupe);text-transform:uppercase;margin-bottom:4px">Fundadores</div>
+    <div style="font-family:var(--fb);font-size:0.8rem;color:var(--bege);line-height:1.5">Vinícius &amp; Bárbara Padovani</div>
+    <div style="height:6px"></div>
+    <div class="perfil-local">Paulínia · Campinas · Interior de SP</div>
+  </div>
+
+  <!-- URGÊNCIA -->
+  <div class="urgencia-card">
+    <div class="urgencia-titulo">Risco de busca e apreensão?</div>
+    <div class="urgencia-texto">
+      <strong>Fale agora pelo WhatsApp.</strong> Casos urgentes têm prioridade e retorno em até 2 horas.
+    </div>
+  </div>
+
+  <!-- LINKS PRINCIPAIS -->
+  <div class="secao-label">O que você precisa</div>
+  <div class="links-lista">
+
+    <!-- WhatsApp - sempre primeiro -->
+    <a href="https://wa.me/5519953271940?text=Olá!%20Vim%20pelo%20Instagram%20e%20tenho%20um%20veículo%20com%20financiamento%20atrasado." class="link-btn wpp" target="_blank">
+      <div class="link-icone-wrap">
+        <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </div>
+      <div class="link-info">
+        <span class="link-texto">Falar no WhatsApp</span>
+        <span class="link-sub">Retorno em até 2 horas · Discreto</span>
+      </div>
+      <div class="link-seta">›</div>
+    </a>
+
+    <!-- Quero vender meu carro financiado -->
+    <a href="https://atlasveiculos.com.br#contato" class="link-btn primario" target="_blank">
+      <div class="link-icone-wrap">🚗</div>
+      <div class="link-info">
+        <span class="link-texto">Quero vender meu carro</span>
+        <span class="link-sub">Financiamento atrasado · Sair sem dívida</span>
+      </div>
+      <div class="link-seta">›</div>
+    </a>
+
+    <!-- Site -->
+    <a href="https://atlasveiculos.com.br" class="link-btn escuro" target="_blank">
+      <div class="link-icone-wrap">🌐</div>
+      <div class="link-info">
+        <span class="link-texto">Acessar nosso site</span>
+        <span class="link-sub">Conheça tudo que a Atlas oferece</span>
+      </div>
+      <div class="link-seta" style="color:var(--ouro)">›</div>
+    </a>
+
+    <!-- Como funciona -->
+    <a href="https://atlasveiculos.com.br#como-funciona" class="link-btn escuro" target="_blank">
+      <div class="link-icone-wrap">📋</div>
+      <div class="link-info">
+        <span class="link-texto">Como funciona</span>
+        <span class="link-sub">Do contato ao PIX na conta · 4 etapas</span>
+      </div>
+      <div class="link-seta" style="color:var(--ouro)">›</div>
+    </a>
+
+    <!-- Avaliação no Google -->
+    <a href="https://g.page/atlasveiculossp/review" class="link-btn outline" target="_blank">
+      <div class="link-icone-wrap">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+      </div>
+      <div class="link-info">
+        <span class="link-texto">Avaliações no Google</span>
+        <span class="link-sub">Veja o que nossos clientes dizem</span>
+      </div>
+      <div class="link-seta" style="color:var(--ouro)">›</div>
+    </a>
+
+  </div>
+
+  <!-- STATS -->
+  <div class="divisor">
+    <div class="divisor-linha"></div>
+    <div class="divisor-texto">Estrutura</div>
+    <div class="divisor-linha"></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat-item">
+      <div class="stat-valor">39+</div>
+      <div class="stat-label">Bancos atendidos</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-valor">24h</div>
+      <div class="stat-label">Proposta em até</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-valor">R$0</div>
+      <div class="stat-label">Custo para você</div>
+    </div>
+  </div>
+
+  <!-- HORÁRIO -->
+  <div class="divisor">
+    <div class="divisor-linha"></div>
+    <div class="divisor-texto">Horário</div>
+    <div class="divisor-linha"></div>
+  </div>
+
+  <div class="horario-box">
+    <div class="horario-linha">
+      <span class="horario-dia">Segunda a Sexta</span>
+      <span class="horario-tempo">09h às 18h</span>
+    </div>
+    <div class="horario-linha">
+      <span class="horario-dia">Sábado</span>
+      <span class="horario-tempo">09h às 12h</span>
+    </div>
+    <div class="horario-linha">
+      <span class="horario-dia">Domingo</span>
+      <span class="horario-fechado">Fechado</span>
+    </div>
+  </div>
+
+  <!-- REDES SOCIAIS -->
+  <div class="divisor">
+    <div class="divisor-linha"></div>
+    <div class="divisor-texto">Redes</div>
+    <div class="divisor-linha"></div>
+  </div>
+
+  <div class="redes">
+    <a href="https://instagram.com/atlasveiculos.sp" class="rede-btn" target="_blank" title="Instagram">
+      <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:var(--ouro)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+    <a href="https://facebook.com/atlasveiculossp" class="rede-btn" target="_blank" title="Facebook">
+      <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:var(--ouro)"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a href="https://wa.me/5519953271940" class="rede-btn" target="_blank" title="WhatsApp">
+      <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:var(--verde-wpp)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <a href="mailto:aveiculosesolucoes@gmail.com" class="rede-btn" title="Email">
+      <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:var(--ouro)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    </a>
+  </div>
+
+  <!-- RODAPÉ -->
+  <div class="rodape">
+    <div class="rodape-texto">Paulínia, SP · Campinas e região</div>
+    <div class="rodape-copy">© 2025 Atlas Veículos e Soluções</div>
+  </div>
+
+</div>
+</body>
+</html>
